@@ -4,8 +4,11 @@ on: [push]
 
 jobs:
   build:
+    strategy:
+      matrix:
+        platform: [macos-latest]
 
-    runs-on: macos-latest
+    runs-on: ${{ matrix.platform }}
 
     steps:
     - uses: actions/checkout@v1
